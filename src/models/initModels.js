@@ -8,21 +8,28 @@ const initModels = () => {
     //? FK = RecoveryPasswords
     Users.hasMany(RecoveryPasswords)
     RecoveryPasswords.belongsTo(Users)
-    //? user - message
-    Messages.belongsTo(Users)
+
+    //? users - messages
     Users.hasMany(Messages)
-    //? user - conversation
+    Messages.belongsTo(Users)
+
+    //? users - conversations
+
     Users.hasMany(Conversations)
     Conversations.belongsTo(Users)
-    //? user - conversation
+
+    //? usuarios - participaciones tabla pivote entre users - conversations
     Users.hasMany(Participants)
     Participants.belongsTo(Users)
-    //? conversation - message
+
+    //? conversations - messages
     Conversations.hasMany(Messages)
     Messages.belongsTo(Conversations)
-    //? conversation - paticipants
+
+    //? conversataions - participants tabla pivote entre users - conversations
     Conversations.hasMany(Participants)
     Participants.belongsTo(Conversations)
+
 }
 
 module.exports = initModels

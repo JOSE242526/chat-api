@@ -6,7 +6,7 @@ const roleMiddleware = (req, res, next) => {
     } else {
         res.status(401).json({message: 'Permission Denied'})
     }
-}
+}   
 
 
 module.exports = roleMiddleware

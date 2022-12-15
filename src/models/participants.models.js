@@ -17,7 +17,7 @@ const Participants = db.define('participants', {
             model: Users
         }
     },
-    conversationsId: {
+    conversationId: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {

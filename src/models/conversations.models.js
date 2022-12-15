@@ -14,10 +14,10 @@ const Conversations = db.define('conversations', {
     imageUrl: {
         type: DataTypes.STRING
     },
-    userId: {
+    userId: { 
         type: DataTypes.UUID,
         allowNull: false,
-        references: {
+        references: { 
             key: 'id',
             model: Users
         }
