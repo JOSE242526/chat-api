@@ -44,7 +44,8 @@ app.get('/', (req, res) => {
 app.use('/api/v1/users', userRouter)
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/conversations', conversationRouter)
-
+app.use('/api/v1/conversations/:conversation_id/messages', conversationRouter)
+app.use('/api/v1/conversations/:conversation_id/messages/:message_id', conversationRouter)
 
 app.listen(config.api.port, () => {
     console.log(`Server started on ${config.api.host}`)

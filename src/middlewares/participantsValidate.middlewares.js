@@ -3,7 +3,6 @@ const {findParticipantConversations} = require('../participants/participants.con
 const participantValidate = (req, res, next) =>{
     const conversationId = req.params.conversation_id
     const userId = req.user.id
-
     findParticipantConversations(userId, conversationId)
     .then(data =>{
         if(data){
