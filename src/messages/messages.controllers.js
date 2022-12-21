@@ -11,19 +11,18 @@ const createMessage = async (obj) =>{
     })
     return data
 }
-const findMesssageById = async (messageId) => {
-    const data = await Messages.findOne({
+const findMesssageById = async (conversationId) => {
+    const data = await Messages.findAll({
         where: {
-            messageId: messageId 
+            conversationId: conversationId
         }
     })
     return data
 }
 
-const removeMessage = async (id, messageId) =>{
+const removeMessage = async (messageId) =>{
     const data = await Messages.destroy({
         where: {
-            id: id,
             messageId: messageId 
         }  
     })

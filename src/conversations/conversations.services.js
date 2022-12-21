@@ -11,7 +11,7 @@ const getAllConversations = (req, res) => {
 }
 
 const getConversationById = (req, res) =>{
-    const id = req.params.id
+    const id = req.params.conversation_id
     conversationController.findConversationById(id)
         .then(data =>{
             if(data){

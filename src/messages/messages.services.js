@@ -1,7 +1,7 @@
 const messagesControllers = require('./messages.controllers')
 
 const postMessage = (req, res) =>{
-    const userId = req.use.id
+    const userId = req.user.id
     const conversationId = req.params.conversation_id
     const {message} = req.body
     messagesControllers.createMessage({userId, conversationId, message})
@@ -19,14 +19,13 @@ const postMessage = (req, res) =>{
 }
 
 const getMessageById = (req, res) =>{
-    const id = req.user.id
-    const messageId = req.body.messageId
-    messagesControllers.findPostsById(id, messageId)
+    const conversation_id = req.params.conversation_id
+    messagesControllers.findMesssageById(conversation_id)
     .then((data) => {
         if(data){
             res.status(200).json(data)
         } else {
-            res.status(404).json({message: 'Invalid ID: ' +id})
+            res.status(404).json({message: 'Invalid ID: ' +conversation_id})
         }
     })
     .catch((err) => {
